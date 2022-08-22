@@ -19,6 +19,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class NotlarListesiAdaptoru extends RecyclerView.Adapter<NotlarViewHolder>{
     Context context;
@@ -48,17 +49,50 @@ public class NotlarListesiAdaptoru extends RecyclerView.Adapter<NotlarViewHolder
         holder.textview_tarih.setText(list.get(position).getTarih());
         holder.textview_tarih.setSelected(true);
 
-        if (list.get(position).isSabitlendi(){
+        if (list.get(position).isSabitlendi()){
             holder.imageview_pin.setImageResource(R.drawable.ic_round_push_pin_24);
         }
         else {
             holder.imageview_pin.setImageResource(0);
         }
+        int color_code = getColor();
+        holder.notlar_container
+                .setCardBackgroundColor(holder
+                        .itemView.getResources()
+                        .getColor(color_code, null));
+
+        holder.notlar_container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onClick(list.get(holder.getAbsoluteAdapterPosition()));
+            }
+        });
+        holder.notlar_container.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                listener.uzunBasili(list.get(holder.getAbsoluteAdapterPosition()),
+                        holder.notlar_container);
+                return true;
+            }
+        });
     }
 
     private int getColor(){
         List<Integer> colorCode = new ArrayList<>();
-    }
+
+        colorCode.add(R.color.pembe);
+        colorCode.add(R.color.lila);
+        colorCode.add(R.color.kirmizi);
+        colorCode.add(R.color.pastel_mavi);
+        colorCode.add(R.color.sari);
+        colorCode.add(R.color.turuncu);
+        colorCode.add(R.color.yesil);
+
+//Rastgele renk değişimi için renkleri return edn fonksiyon
+        Random random = new Random();
+        int random_color = random.nextInt(colorCode.size());
+        return random_color;
+     }
 
     @Override
     public int getItemCount() {
