@@ -1,12 +1,14 @@
 package com.avcia.ideanote;
 
 import androidx.activity.result.ActivityResultCallback;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -38,14 +40,25 @@ public class MainActivity extends AppCompatActivity {
         database = RoomDB.getInstance(this);
         notlar = database.mainDAO().getAll();
         updateRecycler(notlar);
-        fab_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NotAlmaActivity.class);
-                startActivityForResult(intent, 101);
-            }
+        fab_add.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, NotAlmaActivity.class);
+            startActivityForResult(intent, 404);
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode==404){
+            if (resultCode== Activity.RESULT_OK){
+                Notlar yeni_notlar = (Notlar) data.getSerializableExtra("Not");
+                database.mainDAO().insert(yeni_notlar);
+                notlar.clear();
+                notlar.addAll(database.mainDAO().getAll());
+                notlarListesiAdaptoru.notifyDataSetChanged();
+            }
+        }
     }
 
     private void updateRecycler(List<Notlar> notlar) {
@@ -65,4 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
         }
     };
+
+
 }

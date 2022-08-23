@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/dark_grey"
+    tools:context=".NotAlmaActivity">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/Toolbar_notlar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView_save"
+                android:layout_width="?attr/actionBarSize"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"
+                android:padding="12dp"
+                android:src="@drawable/ic_save_02" />
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+   <!-- app:title="@string/app_name"
+    app:titleTextColor="@color/buz"-->
+<EditText
+    android:id="@+id/editText_baslik"
+    android:hint="Baslik"
+    android:textColorHint="@color/buz"
+    android:padding="10dp"
+    android:textColor="@color/buz"
+    android:singleLine="true"
+    android:textStyle="bold"
+    android:textSize="20sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <EditText
+        android:id="@+id/editText_notlar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:hint="Not Ekle: "
+        android:textStyle="normal"
+        android:textColor="@color/buz"
+        android:textColorHint="@color/buz"/>
+
+</LinearLayout>
