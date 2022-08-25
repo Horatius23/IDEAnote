@@ -1,6 +1,8 @@
 package com.avcia.ideanote.Adaptorler;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.avcia.ideanote.Models.Notlar;
@@ -41,6 +45,7 @@ public class NotlarListesiAdaptoru extends RecyclerView.Adapter<NotlarViewHolder
                 false));
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     }
 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @RequiresApi(api = Build.VERSION_CODES.M)
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     @Override
     public void onBindViewHolder(@NonNull NotlarViewHolder holder, int position) {
         holder.textview_baslik.setText(list.get(position).getBaslik());
@@ -59,6 +64,7 @@ public class NotlarListesiAdaptoru extends RecyclerView.Adapter<NotlarViewHolder
         holder.notlar_container
                 .setCardBackgroundColor(holder
                         .itemView.getResources()
+                       // ContextCompat.getColor(context, R.color.colorc);
                         .getColor(color_code, null));
 
         holder.notlar_container.setOnClickListener(new View.OnClickListener() {
@@ -88,10 +94,9 @@ public class NotlarListesiAdaptoru extends RecyclerView.Adapter<NotlarViewHolder
         colorCode.add(R.color.turuncu);
         colorCode.add(R.color.yesil);
 
-//Rastgele renk değişimi için renkleri return edn fonksiyon
         Random random = new Random();
         int random_color = random.nextInt(colorCode.size());
-        return random_color;
+        return colorCode.get(random_color);
      }
 
     @Override

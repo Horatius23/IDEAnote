@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         updateRecycler(notlar);
         fab_add.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, NotAlmaActivity.class);
-            startActivityForResult(intent, 404);
+            startActivityForResult(intent, 401);
         });
 
     }
@@ -50,16 +50,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==404){
+        if (requestCode==401){
             if (resultCode== Activity.RESULT_OK){
                 Notlar yeni_notlar = (Notlar) data.getSerializableExtra("Not");
                 database.mainDAO().insert(yeni_notlar);
                 notlar.clear();
                 notlar.addAll(database.mainDAO().getAll());
                 notlarListesiAdaptoru.notifyDataSetChanged();
-            }
-        }
-    }
+            }}
+        else if (requestCode==402){
+            if (resultCode==Activity.RESULT_OK){
+                Notlar yeni_notlar = (Notlar) data.getSerializableExtra("Not");
+                database.mainDAO().update(yeni_notlar.getId(),
+                                          yeni_notlar.getBaslik(),
+                                          yeni_notlar.getNotlar());
+                notlar.clear();
+                notlar.addAll(database.mainDAO().getAll());
+                notlarListesiAdaptoru.notifyDataSetChanged();
+            }}}
 
     private void updateRecycler(List<Notlar> notlar) {
         recyclerView.setHasFixedSize(true);
@@ -70,7 +78,10 @@ public class MainActivity extends AppCompatActivity {
     private final NotlarClickLlistener notlarClickLlistener = new NotlarClickLlistener() {
         @Override
         public void onClick(Notlar notlar) {
-
+            Intent intent = new Intent(MainActivity.this,
+                    NotAlmaActivity.class);
+            intent.putExtra("Eski_Not", notlar);
+            startActivityForResult(intent, 402);
         }
 
         @Override
