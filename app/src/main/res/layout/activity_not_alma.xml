@@ -17,6 +17,7 @@
 
             <ImageView
                 android:id="@+id/imageView_save"
+                android:contentDescription=""
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentEnd="true"
@@ -30,9 +31,10 @@
     app:titleTextColor="@color/buz"-->
 <EditText
     android:id="@+id/editText_baslik"
-    android:hint="Baslik"
+    android:hint="@string/ba_l_k"
     android:textColorHint="@color/buz"
-    android:padding="10dp"
+    android:inputType="text"
+    android:padding="13dp"
     android:textColor="@color/buz"
     android:singleLine="true"
     android:textStyle="bold"
@@ -44,8 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
-        android:padding="8dp"
-        android:hint="Not Ekle: "
+        android:padding="12dp"
+        android:hint="@string/not_ekle"
         android:textStyle="normal"
         android:textColor="@color/buz"
         android:textColorHint="@color/buz"/>

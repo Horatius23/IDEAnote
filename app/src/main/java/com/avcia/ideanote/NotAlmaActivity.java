@@ -21,6 +21,7 @@ public class NotAlmaActivity extends AppCompatActivity {
     EditText editText_notlar;
     ImageView imageView_save;
     Notlar notlar;
+    boolean EskiNotMu = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +30,24 @@ public class NotAlmaActivity extends AppCompatActivity {
         imageView_save = findViewById(R.id.imageView_save);
         editText_baslik = findViewById(R.id.editText_baslik);
         editText_notlar = findViewById(R.id.editText_notlar);
+        notlar = new Notlar();
+        try {
+            notlar = (Notlar) getIntent().getSerializableExtra("Eski_Not");
+            editText_baslik.setText(notlar.getBaslik());
+            editText_notlar.setText(notlar.getNotlar());
+            EskiNotMu = true;
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
         //lamdaya çevrildi
         imageView_save.setOnClickListener(v -> {
             String baslik = editText_baslik.getText().toString();
             String betimleme = editText_notlar.getText().toString();
             if (betimleme.isEmpty()){
-                Toast.makeText(NotAlmaActivity.this, "Lütfen Bir Not Ekleyin", Toast.LENGTH_SHORT).show();
+                Toast.makeText(NotAlmaActivity.this,
+                        "Lütfen Bir Not Ekleyin!",
+                        Toast.LENGTH_SHORT).show();
                 return;
             }
             String pattern = "EEE MMM yyyy HH:mm:ss";
@@ -43,7 +56,11 @@ public class NotAlmaActivity extends AppCompatActivity {
             String date = simpleTarih.format(new Date());
             System.out.println(date);
 
-            notlar = new Notlar();
+            if (!EskiNotMu){
+                notlar = new Notlar();
+            }
+
+
             notlar.setNotlar(betimleme);
             notlar.setTarih(simpleTarih.format(date));
 
