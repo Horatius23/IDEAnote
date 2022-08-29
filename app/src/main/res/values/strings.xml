@@ -2,4 +2,6 @@
     <string name="app_name">IDEAnote</string>
     <string name="not_ekle">Not Ekle:</string>
     <string name="ba_l_k">Başlık</string>
+    <string name="todo">TODO</string>
+    <string name="sabitle_kar">Sabitle/Çıkar</string>
 </resources>

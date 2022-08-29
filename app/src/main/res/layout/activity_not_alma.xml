@@ -17,7 +17,6 @@
 
             <ImageView
                 android:id="@+id/imageView_save"
-                android:contentDescription=""
                 android:layout_width="?attr/actionBarSize"
                 android:layout_height="?attr/actionBarSize"
                 android:layout_alignParentEnd="true"
@@ -50,6 +49,9 @@
         android:hint="@string/not_ekle"
         android:textStyle="normal"
         android:textColor="@color/buz"
-        android:textColorHint="@color/buz"/>
+        android:textColorHint="@color/buz"
+        android:autofillHints="Not Ekle"
+        android:contentDescription=""
+        android:inputType="text" />
 
 </LinearLayout>
