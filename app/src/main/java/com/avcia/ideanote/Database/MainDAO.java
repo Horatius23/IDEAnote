@@ -21,4 +21,6 @@ public interface MainDAO {
     void update(int id, String baslik, String notlar);
     @Delete
     void delete(Notlar notlar);
+    @Query("UPDATE notlar SET sabitlendi = :pin WHERE ID = :id")
+    void pin(int id, boolean pin);
 }

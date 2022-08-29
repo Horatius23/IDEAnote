@@ -7,16 +7,25 @@
     android:orientation="vertical"
     android:background="@color/cardview_dark_background"
     tools:context=".MainActivity">
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView_home"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/gri"
+        app:iconifiedByDefault="false"
+        app:queryHint="Notlarda Ara..." />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/searchView_home"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"

@@ -1,8 +1,10 @@
 package com.avcia.ideanote.Adaptorler;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
+import android.telephony.ims.RcsUceAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -93,6 +95,12 @@ public class NotlarListesiAdaptoru extends RecyclerView.Adapter<NotlarViewHolder
         colorCode.add(R.color.sari);
         colorCode.add(R.color.turuncu);
         colorCode.add(R.color.yesil);
+        colorCode.add(R.color.sari_03);
+        colorCode.add(R.color.sage);
+        colorCode.add(R.color.lila_02);
+        colorCode.add(R.color.turkuaz_pastel);
+        colorCode.add(R.color.bej);
+        colorCode.add(R.color.kirmizi_hint);
 
         Random random = new Random();
         int random_color = random.nextInt(colorCode.size());
@@ -100,8 +108,13 @@ public class NotlarListesiAdaptoru extends RecyclerView.Adapter<NotlarViewHolder
      }
 
     @Override
-    public int getItemCount() {
-        return list.size();
+    public int getItemCount()
+    {return list.size();}
+    @SuppressLint("NotifyDataSetChanged")
+    public void filterListe(List<Notlar> filtrelenmisListe)
+    {
+        list = filtrelenmisListe;
+        notifyDataSetChanged();
     }
 }
 class NotlarViewHolder extends RecyclerView.ViewHolder {

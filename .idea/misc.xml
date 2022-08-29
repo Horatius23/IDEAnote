@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/IDEAnote/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/IDEAnote/app/src/main/res/layout/activity_not_alma.xml" value="0.3046875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/IDEAnote/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/IDEAnote/app/src/main/res/layout/activity_not_alma.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/IDEAnote/app/src/main/res/layout/notlar_liste.xml" value="0.3046875" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/IDEAnote/app/src/main/res/menu/popup_menu.xml" value="0.30364583333333334" />
       </map>
     </option>
   </component>

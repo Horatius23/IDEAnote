@@ -7,16 +7,25 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="dark_grey">#242B2E</color>
-    <color name="lila">#AB7DE3</color>
+
     <color name="pastel_mavi">#379CC8</color>
     <color name="sari">#FAEE83</color>
+    <color name="sari_03">#E5D68A</color>
     <color name="turuncu">#F3B65B</color>
     <color name="kirmizi">#FF776D</color>
     <color name="pembe">#FFA49D</color>
-    <color name="yesil">#8EC64C</color>
+    <color name="yesil">#98C661</color>
     <color name="buz">#D0D9E4</color>
     <color name="fusya">#6A1B4D</color>
+    <color name="lila">#B189E1</color>
     <color name="peach">#FF6666</color>
+    <color name="yosun">#1C8D73</color>
+    <color name="gri">#3B4343</color>
+    <color name="lila_02">#C1C6FC</color>
+    <color name="turkuaz_pastel">#99C5C4</color>
+    <color name="sage">#B1BCA0</color>
+    <color name="bej">#FFEBCD</color>
+    <color name="kirmizi_hint">#CD5C5C</color>
 
 
 
