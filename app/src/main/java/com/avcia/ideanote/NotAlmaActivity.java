@@ -15,7 +15,7 @@ import com.avcia.ideanote.Models.Notlar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-
+//NOTES NOT BEING ADDED!
 public class NotAlmaActivity extends AppCompatActivity {
     EditText editText_baslik;
     EditText editText_notlar;

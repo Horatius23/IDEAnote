@@ -13,6 +13,7 @@ import java.util.List;
 
 @Dao
 public interface MainDAO {
+    //FIX ERRORS!
     @Insert(onConflict = REPLACE)
     void insert(Notlar notlar);
     @Query("SELECT * FROM notlar ORDER BY id DESC")

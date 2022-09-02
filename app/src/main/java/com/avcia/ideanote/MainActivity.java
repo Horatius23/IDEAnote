@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                     NotAlmaActivity.class);
             intent.putExtra("Eski_Not", notlar);
             startActivityForResult(intent, 402);
+            // DEPRECEATED API, MAKE CONTRACTS
         }
 
         @Override
